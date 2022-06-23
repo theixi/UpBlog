@@ -143,7 +143,7 @@ def login():
     return render_template("login.html", form=form)
 
 
-@app.route('/logout')
+@app.route('/logout', methods=["GET", "POST"])
 def logout():
     logout_user()
     return redirect(url_for('get_all_posts'))
@@ -223,7 +223,7 @@ def edit_post(post_id):
     return render_template("make-post.html", form=edit_form)
 
 
-@app.route("/delete/<int:post_id>")
+@app.route("/delete/<int:post_id>", methods=["GET", "POST"])
 @admin_only
 def delete_post(post_id):
     post_to_delete = BlogPost.query.get(post_id)
