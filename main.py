@@ -14,7 +14,8 @@ from flask import abort
 import os
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = os.environ['FLASK_KEY']
+app.config['SECRET_KEY'] = os.getenv("FLASK_KEY")
+print(app.config['SECRET_KEY'])
 ckeditor = CKEditor(app)
 Bootstrap(app)
 
