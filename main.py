@@ -40,7 +40,7 @@ class User(db.Model, UserMixin):
     __tablename__ = "users"
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(1000), unique=True)
-    password = db.Column(db.String(10000))
+    password = db.Column(db.Text(10000))
     name = db.Column(db.String(1000))
 
     # This will act like a List of BlogPost objects attached to each User.
