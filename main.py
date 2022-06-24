@@ -25,7 +25,6 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 
-# db.create_all()
 # Login manager setup
 login_manager = LoginManager()
 login_manager.init_app(app)
@@ -79,8 +78,8 @@ class Comment(db.Model):
     comment_author = relationship("User", back_populates="comments")
 
 
-# Database recovery point
-db.create_all()
+# # Database recovery point
+# db.create_all()
 
 gravatar = Gravatar(app,
                     size=100,
